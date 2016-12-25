@@ -9,11 +9,14 @@ import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
 import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 
 public class MyDriver {
+	/*@author pankaj
+	* 
+	*/
 	public static void main(String[] args) throws Exception {
 		Configuration conf = new Configuration();
 		Job job = new Job(conf, "Map Reduce Word Count");
 		job.setJarByClass(MyDriver.class);
-		job.setMapperClass(MyMap.class); 	
+		job.setMapperClass(MyMapper.class); 	
 		job.setReducerClass(MyReducer.class);
 		job.setMapOutputKeyClass(Text.class);
 		job.setMapOutputValueClass(IntWritable.class);
